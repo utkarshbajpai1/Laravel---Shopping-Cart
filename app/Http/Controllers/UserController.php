@@ -28,4 +28,9 @@ class UserController extends Controller
 
     	return redirect()->route('product.index');
     }
+
+    public function getSignIn()
+    {
+    	return view('user.signin');
+    }
 }

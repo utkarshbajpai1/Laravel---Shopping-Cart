@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Cart;
+use App\Cart;  // without eloquent model
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -40,4 +40,17 @@ class ProductController extends Controller
         $cart = new Cart($oldCart);
         return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
+
+    public function getCheckout()
+    {
+        if(!Session::has('cart'))
+        {
+            return view('shop.shopping-cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $total = $cart->totalPrice;
+        return view('shop.checkout',['total' => $total]);
+    }
+
 }

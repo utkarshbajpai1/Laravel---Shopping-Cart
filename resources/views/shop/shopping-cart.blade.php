@@ -35,7 +35,7 @@
 
 		<div class="row">
 			<div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
-				<strong> <button type="button" class=" btn btn-success " > CheckOut </button> </strong>
+				<strong> <a href="{{ route('checkout') }}" type="button" class=" btn btn-success"> CheckOut </a> </strong>
 			</div>
 		</div>
 
